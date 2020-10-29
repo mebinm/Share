@@ -1,0 +1,957 @@
+ {
+ 	"01": {
+ 		"instanceType": "m5.xlarge",
+ 		"groupSize": [
+ 			0,
+ 			0,
+ 			0
+ 		],
+ 		"scheduling": {
+ 			"enabled": true,
+ 			"downCron": "0 00 * * MON-SUN",
+ 			"upCron": "0 11 * * MON-FRI"
+ 		},
+ 		"resourceConfigs": {
+ 			"cdn": [
+ 				718,
+ 				1100,
+ 				1072
+ 			],
+ 			"api": [
+ 				2766,
+ 				12700,
+ 				12000
+ 			]
+ 		},
+ 		"DEV": {
+ 			"scheduling": {
+ 				"enabled": true
+ 			}
+ 		},
+ 		"QA": {
+ 			"groupSize": [
+ 				0,
+ 				0,
+ 				0
+ 			]
+ 		},
+ 		"PROD": {
+ 			"scheduling": {
+ 				"enabled": false
+ 			},
+ 			"groupSize": [
+ 				0,
+ 				0,
+ 				0
+ 			]
+ 		},
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	},
+ 	"edgarapi01": {
+ 		"instanceType": "m5.xlarge",
+ 		"groupSize": [
+ 			1,
+ 			1
+ 		],
+ 		"scheduling": {
+ 			"enabled": true,
+ 			"downCron": "0 00 * * MON-SUN",
+ 			"upCron": "0 11 * * MON-FRI"
+ 		},
+ 		"resourceConfigs": {
+ 			"cdn": [
+ 				718,
+ 				1100,
+ 				1072
+ 			],
+ 			"api": [
+ 				2766,
+ 				12700,
+ 				12000
+ 			]
+ 		},
+ 		"DEV": {},
+ 		"QA": {},
+ 		"PROD": {
+ 			"scheduling": {
+ 				"enabled": false
+ 			},
+ 			"groupSize": [
+ 				2,
+ 				2
+ 			]
+ 		},
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	},
+ 	"edgaretl01": {
+ 		"instanceType": "r5.large",
+ 		"groupSize": [
+ 			2,
+ 			2,
+ 			2
+ 		],
+ 		"scheduling": {
+ 			"enabled": true,
+ 			"downCron": "0 00 * * MON-SUN",
+ 			"upCron": "0 11 * * MON-FRI"
+ 		},
+ 		"scaling": {
+ 			"metricName": "CPUReservation",
+ 			"scaleout": {
+ 				"threshold": 90,
+ 				"periods": 5
+ 			},
+ 			"scalein": {
+ 				"threshold": 71,
+ 				"periods": 30
+ 			}
+ 		},
+ 		"resourceConfigs": {
+ 			"etl": [
+ 				1742,
+ 				14718,
+ 				14218
+ 			]
+ 		},
+ 		"DEV": {},
+ 		"QA": {
+ 			"groupSize": [
+ 				2,
+ 				2,
+ 				2
+ 			]
+ 		},
+ 		"PROD": {
+ 			"groupSize": [
+ 				2,
+ 				2,
+ 				2
+ 			],
+ 			"scheduling": {
+ 				"enabled": false
+ 			}
+ 		},
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	},
+ 	"api01": {
+ 		"instanceType": "m5.xlarge",
+ 		"groupSize": [
+ 			5,
+ 			6,
+ 			5
+ 		],
+ 		"scheduling": {
+ 			"enabled": true,
+ 			"downCron": "0 00 * * MON-SUN",
+ 			"upCron": "0 11 * * MON-FRI"
+ 		},
+ 		"resourceConfigs": {
+ 			"cdn": [
+ 				718,
+ 				1100,
+ 				1072
+ 			],
+ 			"api": [
+ 				718,
+ 				3488,
+ 				3050
+ 			],
+ 			"api2x": [
+ 				1742,
+ 				6976,
+ 				6300
+ 			]
+ 		},
+ 		"DEV": {},
+ 		"QA": {},
+ 		"PROD": {
+ 			"ebs": {
+ 				"volumeSize": 60
+ 			},
+ 			"scheduling": {
+ 				"enabled": false
+ 			}
+ 		},
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	},
+ 	"ui01": {
+ 		"instanceType": "m5.xlarge",
+ 		"groupSize": [
+ 			1,
+ 			2,
+ 			1
+ 		],
+ 		"scheduling": {
+ 			"enabled": true,
+ 			"downCron": "0 00 * * MON-SUN",
+ 			"upCron": "0 11 * * MON-FRI"
+ 		},
+ 		"resourceConfigs": {
+ 			"cdn": [
+ 				718,
+ 				3488,
+ 				3050
+ 			]
+ 		},
+ 		"DEV": {},
+ 		"QA": {},
+ 		"PROD": {
+ 			"scheduling": {
+ 				"enabled": false
+ 			}
+ 		},
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	},
+ 	"dc01": {
+ 		"instanceType": "c5d.2xlarge",
+ 		"groupSize": [
+ 			1,
+ 			10,
+ 			1
+ 		],
+ 		"scheduling": {
+ 			"enabled": true,
+ 			"downCron": "0 00 * * MON-SUN",
+ 			"upCron": "0 11 * * MON-FRI"
+ 		},
+ 		"scaling": {
+ 			"metricName": "CPUReservation",
+ 			"scaleout": {
+ 				"threshold": 76,
+ 				"periods": 5
+ 			},
+ 			"scalein": {
+ 				"threshold": 49,
+ 				"periods": 30
+ 			}
+ 		},
+ 		"resourceConfigs": {
+ 			"api": [
+ 				3790,
+ 				7000,
+ 				6144
+ 			]
+ 		},
+ 		"DEV": {},
+ 		"QA": {
+ 			"groupSize": [
+ 				1,
+ 				10,
+ 				1
+ 			]
+ 		},
+ 		"PROD": {
+ 			"ebs": {
+ 				"volumeSize": 60
+ 			},
+ 			"groupSize": [
+ 				1,
+ 				20,
+ 				1
+ 			],
+ 			"scheduling": {
+ 				"enabled": false
+ 			}
+ 		},
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	},
+ 	"etl01": {
+ 		"instanceType": "r5.xlarge",
+ 		"groupSize": [
+ 			4,
+ 			20,
+ 			4
+ 		],
+ 		"scheduling": {
+ 			"enabled": true,
+ 			"downCron": "0 00 * * MON-SUN",
+ 			"upCron": "0 11 * * MON-FRI"
+ 		},
+ 		"scaling": {
+ 			"metricName": "CPUReservation",
+ 			"scaleout": {
+ 				"threshold": 90,
+ 				"periods": 5
+ 			},
+ 			"scalein": {
+ 				"threshold": 71,
+ 				"periods": 30
+ 			}
+ 		},
+ 		"resourceConfigs": {
+ 			"etl": [
+ 				1742,
+ 				14718,
+ 				14218
+ 			]
+ 		},
+ 		"DEV": {},
+ 		"QA": {
+ 			"groupSize": [
+ 				4,
+ 				20,
+ 				4
+ 			]
+ 		},
+ 		"PROD": {
+ 			"groupSize": [
+ 				4,
+ 				40,
+ 				4
+ 			],
+ 			"scheduling": {
+ 				"enabled": false
+ 			}
+ 		},
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	},
+ 	"etl02": {
+ 		"instanceType": "m5.xlarge",
+ 		"groupSize": [
+ 			2,
+ 			6,
+ 			2
+ 		],
+ 		"scheduling": {
+ 			"enabled": true,
+ 			"downCron": "0 00 * * MON-SUN",
+ 			"upCron": "0 11 * * MON-FRI"
+ 		},
+ 		"scaling": {
+ 			"metricName": "CPUReservation",
+ 			"scaleout": {
+ 				"threshold": 90,
+ 				"periods": 5
+ 			},
+ 			"scalein": {
+ 				"threshold": 68,
+ 				"periods": 30
+ 			}
+ 		},
+ 		"resourceConfigs": {
+ 			"etl": [
+ 				718,
+ 				3488,
+ 				3050
+ 			]
+ 		},
+ 		"asgSecurityGroups": ["TXTNLT-solr"],
+ 		"DEV": {},
+ 		"QA": {
+ 			"groupSize": [
+ 				2,
+ 				6,
+ 				2
+ 			]
+ 		},
+ 		"PROD": {
+ 			"groupSize": [
+ 				2,
+ 				10,
+ 				2
+ 			],
+ 			"scheduling": {
+ 				"enabled": false
+ 			}
+ 		},
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	},
+ 	"TTN01": {
+ 		"instanceType": "r5.xlarge",
+ 		"groupSize": [
+ 			2,
+ 			2,
+ 			2
+ 		],
+ 		"scheduling": {
+ 			"enabled": true,
+ 			"downCron": "0 00 * * MON-SUN",
+ 			"upCron": "0 11 * * MON-FRI"
+ 		},
+ 		"resourceConfigs": {
+ 			"cdn": [
+ 				774,
+ 				1100,
+ 				1072
+ 			],
+ 			"api": [
+ 				2710,
+ 				25600,
+ 				25000
+ 			]
+ 		},
+ 		"DEV": {
+ 			"groupSize": [
+ 				1,
+ 				1
+ 			]
+ 		},
+ 		"QA": {},
+ 		"PROD": {
+ 			"ebs": {
+ 				"volumeSize": 60
+ 			},
+ 			"scheduling": {
+ 				"enabled": false
+ 			}
+ 		},
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	},
+ 	"train01": {
+ 		"instanceType": "r5.xlarge",
+ 		"groupSize": [
+ 			0,
+ 			1,
+ 			0
+ 		],
+ 		"scheduling": {
+ 			"enabled": true,
+ 			"downCron": "0 00 * * MON-SUN",
+ 			"upCron": "30 23 * * MON",
+ 			"cooldown": 180
+ 		},
+ 		"resourceConfigs": {
+ 			"nlp": [
+ 				3072,
+ 				13000,
+ 				12300
+ 			],
+ 			"jupyter": [
+ 				3072,
+ 				26000,
+ 				24000
+ 			]
+ 		},
+ 		"DEV": {
+ 			"ebs": {
+ 				"volumeSize": 100
+ 			},
+ 			"amiImageId": "ami-0d58e8019302e6ab3"
+ 		},
+ 		"QA": {
+ 			"disabled": true
+ 		},
+ 		"PROD": {
+ 			"disabled": true
+ 		},
+ 		"disabled": true,
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	},
+ 	"PRX": {
+ 		"instanceType": "m5.large",
+ 		"groupSize": [
+ 			1,
+ 			2,
+ 			1
+ 		],
+ 		"scheduling": {
+ 			"enabled": true,
+ 			"downCron": "0 00 * * MON-SUN",
+ 			"upCron": "0 11 * * MON-FRI"
+ 		},
+ 		"resourceConfigs": {
+ 			"api": [
+ 				718,
+ 				3488,
+ 				3050
+ 			]
+ 		},
+ 		"DEV": {},
+ 		"QA": {},
+ 		"PROD": {
+ 			"scheduling": {
+ 				"enabled": false
+ 			}
+ 		},
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	},
+ 	"pubapi": {
+ 		"instanceType": "m5.large",
+ 		"groupSize": [
+ 			1,
+ 			2,
+ 			1
+ 		],
+ 		"scheduling": {
+ 			"enabled": true,
+ 			"downCron": "0 00 * * MON-SUN",
+ 			"upCron": "0 11 * * MON-FRI"
+ 		},
+ 		"resourceConfigs": {
+ 			"cdn": [
+ 				718,
+ 				1100,
+ 				1072
+ 			],
+ 			"api": [
+ 				718,
+ 				3488,
+ 				3050
+ 			],
+ 			"api2x": [
+ 				1742,
+ 				6976,
+ 				6300
+ 			]
+ 		},
+ 		"DEV": {},
+ 		"QA": {},
+ 		"PROD": {
+ 			"scheduling": {
+ 				"enabled": false
+ 			}
+ 		},
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	},
+ 	"pubdc01": {
+ 		"instanceType": "c5d.2xlarge",
+ 		"costCenter": "TXT900",
+ 		"groupSize": [
+ 			1,
+ 			10,
+ 			1
+ 		],
+ 		"scheduling": {
+ 			"enabled": true,
+ 			"downCron": "0 00 * * MON-SUN",
+ 			"upCron": "0 11 * * MON-FRI"
+ 		},
+ 		"scaling": {
+ 			"metricName": "CPUReservation",
+ 			"scaleout": {
+ 				"threshold": 76,
+ 				"periods": 5
+ 			},
+ 			"scalein": {
+ 				"threshold": 49,
+ 				"periods": 30
+ 			}
+ 		},
+ 		"resourceConfigs": {
+ 			"api": [
+ 				3790,
+ 				7000,
+ 				6144
+ 			]
+ 		},
+ 		"DEV": {},
+ 		"QA": {
+ 			"groupSize": [
+ 				1,
+ 				10,
+ 				1
+ 			]
+ 		},
+ 		"PROD": {
+ 			"ebs": {
+ 				"volumeSize": 60
+ 			},
+ 			"groupSize": [
+ 				1,
+ 				20,
+ 				1
+ 			],
+ 			"scheduling": {
+ 				"enabled": false
+ 			}
+ 		},
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	},
+ 	"pubnlp": {
+ 		"instanceType": "r5.xlarge",
+ 		"groupSize": [
+ 			1,
+ 			5,
+ 			1
+ 		],
+ 		"scheduling": {
+ 			"enabled": true,
+ 			"downCron": "0 00 * * MON-SUN",
+ 			"upCron": "0 11 * * MON-FRI"
+ 		},
+ 		"scaling": {
+ 			"metricName": "CPUReservation",
+ 			"scaleout": {
+ 				"threshold": 90,
+ 				"periods": 5
+ 			},
+ 			"scalein": {
+ 				"threshold": 71,
+ 				"periods": 30
+ 			}
+ 		},
+ 		"resourceConfigs": {
+ 			"etl": [
+ 				1742,
+ 				14718,
+ 				14218
+ 			]
+ 		},
+ 		"DEV": {},
+ 		"QA": {
+ 			"groupSize": [
+ 				1,
+ 				5,
+ 				1
+ 			]
+ 		},
+ 		"PROD": {
+ 			"groupSize": [
+ 				1,
+ 				5,
+ 				1
+ 			],
+ 			"scheduling": {
+ 				"enabled": false
+ 			}
+ 		},
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	},
+ 	"puberem": {
+ 		"instanceType": "r5.xlarge",
+ 		"groupSize": [
+ 			2,
+ 			6,
+ 			2
+ 		],
+ 		"scheduling": {
+ 			"enabled": true,
+ 			"downCron": "0 00 * * MON-SUN",
+ 			"upCron": "0 11 * * MON-FRI"
+ 		},
+ 		"scaling": {
+ 			"metricName": "CPUReservation",
+ 			"scaleout": {
+ 				"threshold": 90,
+ 				"periods": 5
+ 			},
+ 			"scalein": {
+ 				"threshold": 71,
+ 				"periods": 30
+ 			}
+ 		},
+ 		"resourceConfigs": {
+ 			"etl": [
+ 				1742,
+ 				14718,
+ 				14218
+ 			]
+ 		},
+ 		"DEV": {},
+ 		"QA": {
+ 			"groupSize": [
+ 				2,
+ 				6,
+ 				2
+ 			]
+ 		},
+ 		"PROD": {
+ 			"groupSize": [
+ 				2,
+ 				8,
+ 				2
+ 			],
+ 			"scheduling": {
+ 				"enabled": false
+ 			}
+ 		},
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	},
+ 	"es-txtnlt-docsim": {
+ 		"esDomainName": "txtnlt-docsim",
+ 		"esVersion": "7.7",
+ 		"esInstanceType": "m5.large.elasticsearch",
+ 		"esInstanceCount": 2,
+ 		"esMasterInstanceType": "c5.large.elasticsearch",
+ 		"esMasterInstanceCount": 3,
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		},
+ 		"DEV": {
+ 			"accessPolicy": [{
+ 				"Effect": "Allow",
+ 				"Roles": [
+ 					"JENKINS_TXTNLT",
+ 					"APP_TXTNLT",
+ 					"priv_aws_txtnlt_dev_d"
+ 				],
+ 				"Action": "es*"
+ 			}]
+ 		},
+ 		"QA": {
+ 			"accessPolicy": [{
+ 				"Effect": "Allow",
+ 				"Roles": [
+ 					"JENKINS_TXTNLT",
+ 					"APP_TXTNLT",
+ 					"priv_aws_txtnlt_dev_q"
+ 				],
+ 				"Action": "es*"
+ 			}]
+ 		},
+ 		"PROD": {
+ 			"accessPolicy": [{
+ 				"Effect": "Allow",
+ 				"Roles": [
+ 					"JENKINS_TXTNLT",
+ 					"APP_TXTNLT",
+ 					"priv_aws_txtnlt_ro_p",
+ 					"priv_aws_txtnlt_ops_p"
+ 				],
+ 				"Action": "es*"
+ 			}]
+ 		},
+ 		"accessPolicy": [{
+ 			"Effect": "Allow",
+ 			"Roles": [
+ 				"JENKINS_TXTNLT",
+ 				"APP_TXTNLT",
+ 				"priv_aws_txtnlt_dev_q"
+ 			],
+ 			"Action": "es*"
+ 		}]
+ 	},
+ 	"zk01": {
+ 		"instanceType": "m5.large",
+ 		"groupSize": [
+ 			1,
+ 			1
+ 		],
+ 		"scheduling": {
+ 			"enabled": false
+ 		},
+ 		"resourceConfigs": {
+ 			"api": [
+ 				1742,
+ 				7000,
+ 				6144
+ 			]
+ 		},
+ 		"codeDeploy": {
+ 			"appspecDir": "codeDeployScripts/findAndMountEbs",
+ 			"files": [
+ 				"appspec.yml",
+ 				"installw.sh",
+ 				"startw.sh",
+ 				"start.sh",
+ 				"attach_volume.py"
+ 			]
+ 		},
+ 		"asgSecurityGroups": ["TXTNLT-solr"],
+ 		"elbIds": ["zk01s"],
+ 		"DEV": {
+ 			"vpcSubnets": ["subnet_private-nat_e1c"]
+ 		},
+ 		"QA": {
+ 			"vpcSubnets": ["subnet_private-nat_e1c"]
+ 		},
+ 		"PROD": {
+ 			"vpcSubnets": ["subnet_private-nat_e1c"]
+ 		},
+ 		"vpcSubnets": ["subnet_private-nat_e1c"],
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	},
+ 	"solr01": {
+ 		"instanceType": "r5.xlarge",
+ 		"groupSize": [
+ 			2,
+ 			2,
+ 			2
+ 		],
+ 		"scheduling": {
+ 			"enabled": false
+ 		},
+ 		"resourceConfigs": {
+ 			"api": [
+ 				1742,
+ 				14000,
+ 				12288
+ 			],
+ 			"r5.xlarge": [
+ 				3484,
+ 				28000,
+ 				26000
+ 			],
+ 			"r5.2xlarge": [
+ 				7886,
+ 				62000,
+ 				59000
+ 			],
+ 			"c5.4xlarge": [
+ 				16078,
+ 				28000,
+ 				26000
+ 			]
+ 		},
+ 		"codeDeploy": {
+ 			"appspecDir": "codeDeployScripts/findAndMountEbs",
+ 			"files": [
+ 				"appspec.yml",
+ 				"installw.sh",
+ 				"startw.sh",
+ 				"start.sh",
+ 				"attach_volume.py"
+ 			]
+ 		},
+ 		"asgSecurityGroups": ["TXTNLT-solr"],
+ 		"DEV": {
+ 			"vpcSubnets": [
+ 				"subnet_private-nat_e1b",
+ 				"subnet_private-nat_e1c"
+ 			]
+ 		},
+ 		"QA": {
+ 			"vpcSubnets": [
+ 				"subnet_private-nat_e1a",
+ 				"subnet_private-nat_e1b"
+ 			]
+ 		},
+ 		"PROD": {
+ 			"vpcSubnets": [
+ 				"subnet_private-nat_e1a",
+ 				"subnet_private-nat_e1c"
+ 			]
+ 		},
+ 		"vpcSubnets": [
+ 			"subnet_private-nat_e1a",
+ 			"subnet_private-nat_e1b"
+ 		],
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	},
+ 	"zk02": {
+ 		"instanceType": "m5.large",
+ 		"groupSize": [
+ 			1,
+ 			1
+ 		],
+ 		"scheduling": {
+ 			"enabled": false
+ 		},
+ 		"resourceConfigs": {
+ 			"api": [
+ 				1742,
+ 				7000,
+ 				6144
+ 			]
+ 		},
+ 		"codeDeploy": {
+ 			"appspecDir": "codeDeployScripts/findAndMountEbs",
+ 			"files": [
+ 				"appspec.yml",
+ 				"installw.sh",
+ 				"startw.sh",
+ 				"start.sh",
+ 				"attach_volume.py"
+ 			]
+ 		},
+ 		"asgSecurityGroups": ["TXTNLT-solr"],
+ 		"elbIds": ["zk02s"],
+ 		"DEV": {
+ 			"vpcSubnets": ["subnet_private-nat_e1b"]
+ 		},
+ 		"QA": {
+ 			"disabled": true
+ 		},
+ 		"PROD": {
+ 			"disabled": true
+ 		},
+ 		"disabled": true,
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	},
+ 	"solr02": {
+ 		"instanceType": "r5.xlarge",
+ 		"groupSize": [
+ 			2,
+ 			2,
+ 			2
+ 		],
+ 		"scheduling": {
+ 			"enabled": false
+ 		},
+ 		"resourceConfigs": {
+ 			"api": [
+ 				1742,
+ 				14000,
+ 				12288
+ 			],
+ 			"r5.xlarge": [
+ 				3484,
+ 				28000,
+ 				26000
+ 			],
+ 			"r5.2xlarge": [
+ 				7886,
+ 				62000,
+ 				59000
+ 			],
+ 			"c5.4xlarge": [
+ 				16078,
+ 				28000,
+ 				26000
+ 			]
+ 		},
+ 		"codeDeploy": {
+ 			"appspecDir": "codeDeployScripts/findAndMountEbs",
+ 			"files": [
+ 				"appspec.yml",
+ 				"installw.sh",
+ 				"startw.sh",
+ 				"start.sh",
+ 				"attach_volume.py"
+ 			]
+ 		},
+ 		"asgSecurityGroups": ["TXTNLT-solr"],
+ 		"DEV": {
+ 			"vpcSubnets": [
+ 				"subnet_private-nat_e1b",
+ 				"subnet_private-nat_e1c"
+ 			]
+ 		},
+ 		"QA": {
+ 			"disabled": true
+ 		},
+ 		"PROD": {
+ 			"disabled": true
+ 		},
+ 		"disabled": true,
+ 		"ebs": {
+ 			"volumeSize": 80
+ 		}
+ 	}
+ }
